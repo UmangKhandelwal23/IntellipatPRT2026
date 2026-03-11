@@ -13,7 +13,7 @@ pipeline {
         }
         stage('docker') {
             steps {
-                sh 'sudo docker build -t umangkhandelwal/practiseprt:v2 ${WORKSPACE}'
+                sh 'sudo docker build -t umangkhandelwal/practiseprt:v3 ${WORKSPACE}'
                 sh 'sudo docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
                 sh 'sudo docker push umangkhandelwal/practiseprt:v3'
             }
