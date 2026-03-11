@@ -17,5 +17,5 @@ spec:
       image: umangkhandelwal/practiseprt:v2
       imagePullPolicy: Always
       ports:
-        - containerport: 80
+        - containerPort: 80
         
