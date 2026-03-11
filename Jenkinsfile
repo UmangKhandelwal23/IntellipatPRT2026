@@ -18,5 +18,12 @@ pipeline {
                 sh 'sudo docker push umangkhandelwal/practiseprt:v2'
             }
         }
+       stage('docker') {
+            steps {
+                 sh 'kubectl apply -f k8/Deployment.yml'
+                 sh 'kubectl apply -f k8/Service.yml'
+
+             }
+        }
     }
 }
