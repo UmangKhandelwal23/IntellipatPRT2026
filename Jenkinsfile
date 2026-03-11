@@ -20,6 +20,9 @@ pipeline {
         }
         stage('k8') {
             steps {
+                 agent{
+                     label 'k8slave'
+                   }
                  sh 'kubectl apply -f k8/Deployment.yml'
                  sh 'kubectl apply -f k8/Service.yml'
 
