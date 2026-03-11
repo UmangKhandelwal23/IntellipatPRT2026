@@ -14,7 +14,7 @@ spec:
   spec:
    containers:
     - name: web01
-      image: umangkhandelwal/practiseprt:v2
+      image: umangkhandelwal/practiseprt:v9
       imagePullPolicy: Always
       ports:
         - containerPort: 80

@@ -13,9 +13,9 @@ pipeline {
         }
         stage('docker') {
             steps {
-                sh 'sudo docker build -t umangkhandelwal/practiseprt:v8 ${WORKSPACE}'
+                sh 'sudo docker build -t umangkhandelwal/practiseprt:v9 ${WORKSPACE}'
                 sh 'sudo docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
-                sh 'sudo docker push umangkhandelwal/practiseprt:v8'
+                sh 'sudo docker push umangkhandelwal/practiseprt:v9'
             }
         }
         stage('K8') {
