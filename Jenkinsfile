@@ -13,16 +13,16 @@ pipeline {
         }
         stage('docker') {
             steps {
-                sh 'sudo docker build -t umangkhandelwal/practiseprt:v3 ${WORKSPACE}'
+                sh 'sudo docker build -t umangkhandelwal/practiseprt:v4 ${WORKSPACE}'
                 sh 'sudo docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}'
-                sh 'sudo docker push umangkhandelwal/practiseprt:v3'
+                sh 'sudo docker push umangkhandelwal/practiseprt:v4'
             }
         }
-        stage('k8') {
+        stage('K8') {
+            agent{
+                label 'k8slave'
+            }
             steps {
-                 agent{
-                     label 'k8slave'
-                   }
                  sh 'kubectl apply -f k8/Deployment.yml'
                  sh 'kubectl apply -f k8/Service.yml'
 
